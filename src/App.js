@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
         <HelloItem/>
-      /*<List data={Data}/>*/
+        <List data={Data}/>
     </div>
   );
 }
