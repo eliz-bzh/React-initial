@@ -34,9 +34,7 @@ class HelloItem extends Component{
         console.log("render");
         return(
             <div>
-                <div>
-                    {this.state.date.toLocaleTimeString()}
-                </div>
+                {this.state.date.toLocaleTimeString()}
                 <h1>{this.state.cont}</h1>
                 <button onClick={()=>{console.log('Hello'); this.setState({cont: 'change'})}}>Add</button>
             </div>
