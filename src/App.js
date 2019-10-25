@@ -13,7 +13,8 @@ const Data = [1,2,3];
 function App() {
   return (
     <div className="App">
-      <List data={Data}/>
+        <HelloItem/>
+      /*<List data={Data}/>*/
     </div>
   );
 }

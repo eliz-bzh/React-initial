@@ -3,29 +3,42 @@ import React, {Component} from 'react';
 class HelloItem extends Component{
     constructor(props){
         super(props);
-        this.state = {cont: "Now"};
+        this.state = {cont: "Now", date: new Date()};
         console.log("constructor(props)");
-    }
-
-    componentDidMount() {
-        console.log('DidMount');
     }
 
     componentWillMount() {
         console.log('WillMount');
+        clearInterval(this.timerID);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log("DidUpdate");
     }
 
+    componentDidMount() {
+        console.log('DidMount');
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+    }
+
     render(){
         console.log("render");
         return(
             <div>
+                <div>
+                    {this.state.date.toLocaleTimeString()}
+                </div>
                 <h1>{this.state.cont}</h1>
                 <button onClick={()=>{console.log('Hello'); this.setState({cont: 'change'})}}>Add</button>
-
             </div>
         );
     }
